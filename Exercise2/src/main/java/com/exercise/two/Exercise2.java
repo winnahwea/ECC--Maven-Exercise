@@ -1,5 +1,6 @@
 package com.exercise.two;
 
+
 import java.util.Scanner;
 import java.util.Random;
 import java.io.*;
