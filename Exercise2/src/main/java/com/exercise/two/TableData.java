@@ -2,6 +2,7 @@ package com.exercise.two;
 
 import java.io.*;
 import java.util.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class TableData {
 	GetSetInput get = new GetSetInput();
@@ -22,10 +23,9 @@ public class TableData {
 	// generate key-value pairs
 	public void keyValue() {
 		// key value pairs
-		Generator generate = new Generator() ;
 		for (int rowCount = 0; rowCount < row; rowCount++) {
 			for (int colCount = 0; colCount < col; colCount++) {
-				table.put(generate.threeCharGenerator(), generate.threeCharGenerator());
+				table.put(RandomStringUtils.randomAscii(3), RandomStringUtils.randomAscii(3));
 			}			
 		}
 	}
