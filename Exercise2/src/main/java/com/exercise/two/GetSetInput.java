@@ -1,7 +1,7 @@
 package com.exercise.two;
 
 import java.util.Scanner;
-import javax.swing.*;
+import java.io.*;
 
 public class GetSetInput {
 	Scanner scan = new Scanner(System.in);
@@ -49,15 +49,22 @@ public class GetSetInput {
 	}
 
 	//--file path--
-	public void setFilePath() {
-		System.out.print("Select file location and input file name: ");
-		JFileChooser f = new JFileChooser(".");
-        f.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); 
-        f.showSaveDialog(null);
-
-        System.out.println(f.getCurrentDirectory());
-        this.outputFilePath = f.getSelectedFile().getAbsolutePath();
+	public void setFilePath() throws FileNotFoundException {
+		
+		try{  
+		Scanner inScanner = new Scanner(System.in);
+		System.out.print("Enter input file path and name:");
+		String inFile = inScanner.next();
+		System.out.println("You entered: " + inFile);       
+		File f= new File(inFile);
+		f.createNewFile();
+		this.outputFilePath = f.getAbsolutePath();	
 	}
+		
+		catch(IOException e){
+			e.printStackTrace();
+		}
+	}	
 	public String getFilePath() {
 		return outputFilePath;
 	}
