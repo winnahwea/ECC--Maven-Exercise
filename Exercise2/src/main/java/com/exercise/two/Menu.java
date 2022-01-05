@@ -3,6 +3,7 @@ package com.exercise.two;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class Menu {
 	GetSetInput get = new GetSetInput();
@@ -14,7 +15,6 @@ public class Menu {
 	String menu = get.getMenu();
 	String searchString = get.getSearchString();
 
-	Generator generate = new Generator();
 	TableData newTable = new TableData();
 	LinkedHashMap<String, String> table = newTable.getTable();
 	
@@ -63,7 +63,7 @@ public class Menu {
 		// generate and append additional row to hashmap
 		for (int rowCount = 0; rowCount < 1; rowCount++) {
 			for (int colCount = 0; colCount < col; colCount++) {
-				table.put(generate.threeCharGenerator(), generate.threeCharGenerator());
+				table.put(RandomStringUtils.randomAscii(3), RandomStringUtils.randomAscii(3));
 			}
 		}
 		// rewrite table to file
